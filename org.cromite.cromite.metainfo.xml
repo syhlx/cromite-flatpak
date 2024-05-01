@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 the Chromium authors, with modifications -->
+<component type="desktop-application">
+  <id>org.cromite.cromite</id>
+  <launchable type="desktop-id">org.cromite.cromite.desktop</launchable>
+  <name>Cromite</name>
+  <developer_name>uazo</developer_name>
+  <summary>Cromite is a Bromite fork with ad blocking and privacy enhancements</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <url type="homepage">https://github.com/uazo/cromite</url>
+  <description>
+   <p>
+      Cromite is a Chromium fork based on Bromite with built-in support for ad blocking and an eye for privacy.
+   </p>
+   <p>
+      Cromite's goal is to
+      <ul>
+        <li>limit the features built into the browser that can be used as a platform for tracking users' habits, and, if it is not technically possible, disable them and leave it up to the user to choose whether to re-enable them</li>
+        <li>limit the close integration between the browser and its manufacturer</li>
+        <li>not let the excellent research work done by csagan5 with Bromite be lost</li>
+      </ul>
+   </p>
+  </description>
+  <releases>
+    <release version="124.0.6367.91" date="2024-04-29"/>
+  </releases>
+  <content_rating type="oars-1.1"/>
+  <update_contact>https://github.com/uazo/cromite/issues</update_contact>
+</component>

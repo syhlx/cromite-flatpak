@@ -1,0 +1,96 @@
+app-id: org.cromite.cromite
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+base: org.chromium.Chromium.BaseApp
+base-version: '23.08'
+command: cromite
+separate-locales: false
+finish-args:
+  - --allow=multiarch
+  - --device=all
+  - --env=GTK_PATH=/app/lib/gtkmodules
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
+  - --share=ipc
+  - --share=network
+  - --socket=cups
+  - --socket=pcsc # FIDO2
+  - --socket=pulseaudio
+  - --socket=x11
+  - --socket=wayland
+  - --require-version=1.8.2
+  - --system-talk-name=org.freedesktop.UPower
+  - --talk-name=org.freedesktop.FileManager1
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.freedesktop.ScreenSaver
+  - --talk-name=org.freedesktop.secrets
+  - --talk-name=org.kde.kwalletd5
+  - --talk-name=org.kde.kwalletd6
+  - --talk-name=org.gnome.SessionManager
+  - --talk-name=org.gnome.Mutter.IdleMonitor.*
+  - --system-talk-name=org.freedesktop.Avahi
+  - --own-name=org.mpris.MediaPlayer2.chromium.*
+  - --filesystem=xdg-run/pipewire-0
+  # To load policies on the host /etc/chromium/policies
+  - --filesystem=host-etc
+  # To install a PWA application
+  - --filesystem=home/.local/share/applications:create
+  - --filesystem=home/.local/share/icons:create
+  - --filesystem=xdg-desktop
+  # For default download directory to work as expected
+  - --filesystem=xdg-download
+  # For GNOME proxy resolution
+  - --filesystem=xdg-run/dconf
+  - --filesystem=~/.config/dconf:ro
+  - --talk-name=ca.desrt.dconf
+  - --env=DCONF_USER_CONFIG_DIR=.config/dconf
+  - --env=GIO_EXTRA_MODULES=/app/lib/gio/modules
+  - --env=GSETTINGS_BACKEND=dconf
+  # For KDE proxy resolution (KDE5 only)
+  - --filesystem=~/.config/kioslaverc
+  - --filesystem=/run/.heim_org.h5l.kcm-socket
+  - --persist=.pki
+
+modules:
+  - name: zypak
+    sources:
+      - type: git
+        url: https://github.com/refi64/zypak
+        tag: v2024.01.17
+        commit: ded79a2f8a509adc21834b95a9892073d4a91fdc
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+
+  - name: cromite
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app
+      - bsdtar -xf cromite.tar.gz -C /app
+      - mv /app/chrome-lin /app/cromite
+      - mv /app/cromite/chrome /app/cromite/cromite
+      - install -Dm 644 LICENSE /app/cromite/LICENSE
+      - install -Dm 644 cromite.desktop /app/share/applications/org.cromite.cromite.desktop
+      - install -Dm 644 cromite.svg /app/share/icons/hicolor/scalable/apps/org.cromite.cromite.svg
+      - install -Dm 755 cromite.sh /app/bin/cromite
+      - install -Dm 644 -t /app/etc cobalt.ini
+      - install -Dm 644 -t /app/share/metainfo org.cromite.cromite.metainfo.xml
+
+    sources:
+      - type: file
+        url: https://github.com/uazo/cromite/releases/download/v124.0.6367.91-16f4295a45228d50667be3dc7463efde9f3002f6/chrome-lin64.tar.gz
+        sha256: 01d253e2cd3380a4116eb6adebb127dcf12ba670599a9192f77f7996736fe3c2
+        dest-filename: cromite.tar.gz
+        only-arches: [x86_64]
+      - type: file
+        path: cobalt.ini
+      - type: file
+        path: org.cromite.cromite.metainfo.xml
+      - type: file
+        path: LICENSE
+      - type: file
+        path: cromite.svg
+      - type: file
+        path: cromite.desktop
+      - type: file
+        path: cromite.sh
