@@ -43,9 +43,6 @@ finish-args:
   - --filesystem=xdg-run/dconf
   - --filesystem=~/.config/dconf:ro
   - --talk-name=ca.desrt.dconf
-  - --env=DCONF_USER_CONFIG_DIR=.config/dconf
-  - --env=GIO_EXTRA_MODULES=/app/lib/gio/modules
-  - --env=GSETTINGS_BACKEND=dconf
   # For KDE proxy resolution (KDE5 only)
   - --filesystem=~/.config/kioslaverc
   - --filesystem=/run/.heim_org.h5l.kcm-socket
