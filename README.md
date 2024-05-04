@@ -2,10 +2,8 @@
 
 ## Disclaimer
 
-First of all, please note that this is not an official Flatpak release of [Cromite](https://github.com/uazo/cromite).\
+Please note that this is not an official Flatpak release of [Cromite](https://github.com/uazo/cromite).\
 Cromite's developer [uazo](https://github.com/uazo) is looking into [making an official one](https://github.com/uazo/cromite/issues/1053).
-
-In the meantime, if you want to try out Cromite's Flatpak for yourself, you can follow these instructions.
 
 ## Installation
 
@@ -37,7 +35,7 @@ If you have Chromium already installed on your system, the file should be locate
 /usr/lib/chromium-browser/chrome-sandbox
 /usr/lib64/chromium-browser/chrome-sandbox
 ```
-\
+
 You can copy it using this command (change the file path as needed):
 
 ```bash
