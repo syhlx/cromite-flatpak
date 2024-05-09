@@ -75,8 +75,8 @@ modules:
 
     sources:
       - type: file
-        url: https://github.com/uazo/cromite/releases/download/v124.0.6367.118-8dca688ad4d06a58885606da01a2b32041275c64/chrome-lin64.tar.gz
-        sha256: 7c3ec49830e76628ff907b65d8b53db4574dd00752609be2f7012365ee9b7be9
+        url: https://github.com/uazo/cromite/releases/download/v124.0.6367.159-9af3274988743133252d27054a6b6d4670785d27/chrome-lin64.tar.gz
+        sha256: 6e56f12f4cf2dbaca68bf44daa6d7fe49fa54badf9c1ebd2a9652b74557b6b1d
         dest-filename: cromite.tar.gz
         only-arches: [x86_64]
       - type: file
