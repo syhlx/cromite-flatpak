@@ -9,7 +9,6 @@ separate-locales: false
 finish-args:
   - --allow=multiarch
   - --device=all
-  - --env=GTK_PATH=/app/lib/gtkmodules
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
   - --share=ipc
   - --share=network
@@ -33,10 +32,6 @@ finish-args:
   - --filesystem=xdg-run/pipewire-0
   # To load policies on the host /etc/chromium/policies
   - --filesystem=host-etc
-  # To install a PWA application
-  - --filesystem=home/.local/share/applications:create
-  - --filesystem=home/.local/share/icons:create
-  - --filesystem=xdg-desktop
   # For default download directory to work as expected
   - --filesystem=xdg-download
   # For GNOME proxy resolution
