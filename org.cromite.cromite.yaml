@@ -30,8 +30,6 @@ finish-args:
   - --system-talk-name=org.freedesktop.Avahi
   - --own-name=org.mpris.MediaPlayer2.chromium.*
   - --filesystem=xdg-run/pipewire-0
-  # To load policies on the host /etc/chromium/policies
-  - --filesystem=host-etc
   # For default download directory to work as expected
   - --filesystem=xdg-download
   # For GNOME proxy resolution
