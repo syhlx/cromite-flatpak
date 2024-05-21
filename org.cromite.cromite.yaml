@@ -7,7 +7,6 @@ base-version: '23.08'
 command: cromite
 separate-locales: false
 finish-args:
-  - --allow=multiarch
   - --device=all
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
   - --share=ipc
@@ -20,7 +19,6 @@ finish-args:
   - --require-version=1.8.2
   - --system-talk-name=org.freedesktop.UPower
   - --talk-name=org.freedesktop.FileManager1
-  - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.freedesktop.secrets
   - --talk-name=org.kde.kwalletd5
