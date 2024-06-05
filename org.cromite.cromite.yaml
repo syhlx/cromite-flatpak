@@ -40,23 +40,12 @@ finish-args:
   - --persist=.pki
 
 modules:
-  - name: zypak
-    sources:
-      - type: git
-        url: https://github.com/refi64/zypak
-        tag: v2024.01.17
-        commit: ded79a2f8a509adc21834b95a9892073d4a91fdc
-        x-checker-data:
-          type: git
-          tag-pattern: ^v([\d.]+)$
-
   - name: cromite
     buildsystem: simple
     build-commands:
       - mkdir -p /app
       - bsdtar -xf cromite.tar.gz -C /app
       - mv /app/chrome-lin /app/cromite
-      - mv /app/cromite/chrome /app/cromite/cromite
       - install -Dm 644 LICENSE /app/cromite/LICENSE
       - install -Dm 644 cromite.desktop /app/share/applications/org.cromite.cromite.desktop
       - install -Dm 644 cromite.svg /app/share/icons/hicolor/scalable/apps/org.cromite.cromite.svg
@@ -66,8 +55,8 @@ modules:
 
     sources:
       - type: file
-        url: https://github.com/uazo/cromite/releases/download/v125.0.6422.76-79775d5c2adceb3f886b3c023f8b94604b7cd707/chrome-lin64.tar.gz
-        sha256: 9279072d41266463b452b48326810db08eda2fb40ab086d5bb9d76492042dafa
+        url: https://github.com/uazo/cromite/releases/download/flatpak-sandbox-patch/chrome-lin64.tar.gz
+        sha256: 9fb6c87d47aa50955d015211f7b0dcbee2e0b49a5b4822ee48f2863f2dcbe702
         dest-filename: cromite.tar.gz
         only-arches: [x86_64]
       - type: file

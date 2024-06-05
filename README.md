@@ -19,25 +19,5 @@ flatpak install org.chromium.Chromium.BaseApp/x86_64/23.08
 git clone https://github.com/syhlx/cromite-flatpak.git
 cd cromite-flatpak
 
-flatpak-builder build-dir org.cromite.cromite.yaml
 flatpak-builder --user --install --force-clean build-dir org.cromite.cromite.yaml
-```
-\
-Since Cromite does not yet ship with the `chrome-sandbox` binary, you will have to manually add it to Cromite.\
-You can get the binary file from your distribution's Chromium package (or any Chromium-based browser).
-
-If you have Chromium already installed on your system, the file should be located in one of these places (depending on your distro):
-
-```bash
-/usr/lib/chromium/chrome-sandbox
-/usr/lib64/chromium/chrome-sandbox
-
-/usr/lib/chromium-browser/chrome-sandbox
-/usr/lib64/chromium-browser/chrome-sandbox
-```
-
-You can copy it using this command (change the file path as needed):
-
-```bash
-cp -a /usr/lib/chromium/chrome-sandbox ~/.local/share/flatpak/app/org.cromite.cromite/x86_64/master/active/files/cromite/
 ```
